@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<p>Please login!</p>
+{% if form.errors %}
+<p>parol va username xato yozilgan!</p>
+{% endif %}
+<form method='POST' action="{% url 'login' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class='btn btn-primary' type="submit" value='login'>
+    
+</form>
+{% endblock content %}
